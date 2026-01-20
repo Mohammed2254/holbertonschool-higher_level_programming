@@ -2,8 +2,8 @@
 def no_c(my_string):
     new = ""
     for char in my_string:
-        if char == 'c' or char == 'C':
-            new +=  ""
+        if char == "c" or char == "C":
+            new += ""
         else:
             new += char
     return new
