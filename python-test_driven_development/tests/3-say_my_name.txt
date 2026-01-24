@@ -1,0 +1,150 @@
+# ==============================================================================
+# 3. Say my name - Tests
+# ==============================================================================
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+>>> say_my_name("Walter", "White")
+My name is Walter White
+
+>>> say_my_name("Bob")
+My name is Bob
+
+>>> say_my_name("Bob", "")
+My name is Bob
+
+# ==============================================================================
+# Test Case 1: Normal cases with spaces
+# ==============================================================================
+
+>>> say_my_name("John", "Doe")
+My name is John Doe
+
+>>> say_my_name("Alice", "Smith Johnson")
+My name is Alice Smith Johnson
+
+>>> say_my_name("", "Smith")
+My name is  Smith
+
+# ==============================================================================
+# Test Case 2: Arabic names
+# ==============================================================================
+
+>>> say_my_name("أحمد", "محمد")
+My name is أحمد محمد
+
+>>> say_my_name("سارة", "")
+My name is سارة
+
+# ==============================================================================
+# Test Case 3: Special characters
+# ==============================================================================
+
+>>> say_my_name("John", "O'Reilly")
+My name is John O'Reilly
+
+>>> say_my_name("Jean", "D'Arc")
+My name is Jean D'Arc
+
+>>> say_my_name("John", "Smith-Jones")
+My name is John Smith-Jones
+
+# ==============================================================================
+# ERROR TEST CASES
+# ==============================================================================
+
+# Test Case 4: first_name is not a string
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name(3.14, "White")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name(None, "White")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name(["John"], "White")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name({"name": "John"}, "White")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name(True, "White")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+# Test Case 5: last_name is not a string
+>>> say_my_name("Walter", 42)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+>>> say_my_name("Walter", 3.14)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+>>> say_my_name("Walter", None)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+>>> say_my_name("Walter", ["White"])
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+>>> say_my_name("Walter", {"last": "White"})
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+# Test Case 6: Both parameters are not strings
+>>> say_my_name(12, 42)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+# Test Case 7: Empty first name with non-string last name
+>>> say_my_name("", 42)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+# Test Case 8: Very long names
+>>> say_my_name("A" * 100, "B" * 100)
+My name is AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+# Test Case 9: Names with spaces
+>>> say_my_name("John Michael", "Doe Smith")
+My name is John Michael Doe Smith
+
+# Test Case 10: Only spaces
+>>> say_my_name("   ", "   ")
+My name is
+
+# Test Case 11: No arguments (should fail)
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+# Test Case 12: Too many arguments
+>>> say_my_name("John", "Doe", "Extra")
+Traceback (most recent call last):
+...
+TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
