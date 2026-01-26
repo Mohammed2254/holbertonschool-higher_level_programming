@@ -2,7 +2,7 @@
 """ define a class"""
 
 class Square:
-     """square class"""
+    """square class"""
     def __init__(self, size=0):
         """main things in this class"""
         if not isinstance(size, int):
