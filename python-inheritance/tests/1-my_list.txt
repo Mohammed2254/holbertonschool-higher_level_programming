@@ -1,18 +1,12 @@
 #!/usr/bin/python3
 """
-Doctest for MyList class (Task 1)
+Comprehensive doctest for MyList (Task 1)
 
-This file tests:
-- empty lists
-- adding elements
-- print_sorted
-- duplicates
-- negative numbers
-- single element
-- sorted/reverse sorted
-- list inheritance
+To run:
+python3 -m doctest test_my_list_doctest.py -v
 """
 
+# ✅ Import the class so doctest knows it
 MyList = __import__('1-my_list').MyList
 
 def example_empty_list():
@@ -53,26 +47,6 @@ def example_original_list_not_changed():
     """
     pass
 
-def example_already_sorted():
-    """
-    Test MyList that is already sorted.
-
-    >>> my_list = MyList([1, 2, 3, 4, 5])
-    >>> my_list.print_sorted()
-    [1, 2, 3, 4, 5]
-    """
-    pass
-
-def example_reverse_sorted():
-    """
-    Test MyList that is reverse sorted.
-
-    >>> my_list = MyList([5, 4, 3, 2, 1])
-    >>> my_list.print_sorted()
-    [1, 2, 3, 4, 5]
-    """
-    pass
-
 def example_duplicates():
     """
     Test MyList with duplicate elements.
@@ -80,6 +54,16 @@ def example_duplicates():
     >>> my_list = MyList([3, 1, 2, 3, 2])
     >>> my_list.print_sorted()
     [1, 2, 2, 3, 3]
+    """
+    pass
+
+def example_negative_numbers():
+    """
+    Test MyList with negative numbers.
+
+    >>> my_list = MyList([-1, -5, 0, 3])
+    >>> my_list.print_sorted()
+    [-5, -1, 0, 3]
     """
     pass
 
@@ -93,13 +77,27 @@ def example_single_element():
     """
     pass
 
-def example_negative_numbers():
+def example_reverse_sorted():
     """
-    Test MyList with negative numbers.
+    Test MyList that is reverse sorted.
 
-    >>> my_list = MyList([-1, -5, 0, 3])
+    >>> my_list = MyList([5, 4, 3, 2, 1])
     >>> my_list.print_sorted()
-    [-5, -1, 0, 3]
+    [1, 2, 3, 4, 5]
+    """
+    pass
+
+def example_type_check():
+    """
+    Test MyList is subclass of list.
+
+    >>> my_list = MyList()
+    >>> isinstance(my_list, list)
+    True
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> my_list == [1, 2]
+    True
     """
     pass
 
@@ -117,16 +115,12 @@ def example_mixed_append():
     """
     pass
 
-def example_type_check():
+def example_already_sorted():
     """
-    Test MyList is subclass of list and behaves like a list.
+    Test MyList that is already sorted.
 
-    >>> my_list = MyList()
-    >>> isinstance(my_list, list)
-    True
-    >>> my_list.append(1)
-    >>> my_list.append(2)
-    >>> my_list == [1, 2]
-    True
+    >>> my_list = MyList([1, 2, 3, 4, 5])
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
     """
     pass
