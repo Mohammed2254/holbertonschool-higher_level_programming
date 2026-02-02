@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ model to w a file"""
 
 

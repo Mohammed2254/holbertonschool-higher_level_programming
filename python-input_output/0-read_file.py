@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ a model that reads a file """
 
 
