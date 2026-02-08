@@ -7,8 +7,8 @@ import csv
 
 def fetch_and_print_posts():
     data = requests.get("https://jsonplaceholder.typicode.com/posts")
-    print(f"status code :{data.status_code}")
-    if data.status_code == 200:
+    print(f"Status Code :{data.status_code}")
+    if data.ok:
         data = data.json()
         for item in data:
             print(f"{item['title']}")
@@ -16,7 +16,7 @@ def fetch_and_print_posts():
 
 def fetch_and_save_posts():
     data = requests.get("https://jsonplaceholder.typicode.com/posts")
-    if data.status_code == 200:
+    if data.ok:
         data = data.json()
         listOfData = []
         for itm in data:
