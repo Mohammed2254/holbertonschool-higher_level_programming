@@ -59,10 +59,9 @@ class Handler(BaseHTTPRequestHandler):
         
         else:
             self.send_response(404)
-            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            error = {"error": "Endpoint not found"}
-            self.wfile.write(json.dumps(error).encode())
+            self.wfile.write("Endpoint not found".encode())
 
 
 if __name__ == "__main__":
