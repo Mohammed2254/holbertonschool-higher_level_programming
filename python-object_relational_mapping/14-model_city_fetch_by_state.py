@@ -16,8 +16,9 @@ if __name__ == "__main__":
     from the database.
     """
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        argv[1], argv[2], argv[3]))
+    engine = create_engine(
+        "mysql+mysqldb://{}:{}@localhost:3306/{}".format(argv[1], argv[2], argv[3])
+    )
 
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -25,7 +26,7 @@ if __name__ == "__main__":
     query = session.query(City, State).join(State)
 
     for city, state in query.all():
-        print('{}: ({}) {}'.format(state.name, city.id, city.name))
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
 
     session.commit()
     session.close()

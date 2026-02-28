@@ -15,13 +15,14 @@ if __name__ == "__main__":
     Deletes State objects on the database.
     """
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        argv[1], argv[2], argv[3]))
+    engine = create_engine(
+        "mysql+mysqldb://{}:{}@localhost:3306/{}".format(argv[1], argv[2], argv[3])
+    )
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for instance in session.query(State).filter(State.name.contains('a')):
+    for instance in session.query(State).filter(State.name.contains("a")):
         session.delete(instance)
 
     session.commit()
